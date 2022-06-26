@@ -1,5 +1,9 @@
 @import "./variables.scss";
 
+
+// theme mode variable
+$is-dark-mode: false;
+
 // Resetea las configuraciones por default
 * {
     margin: 0;
@@ -9,6 +13,253 @@
 }
 
 
+
 .icon {
     font-size: 1rem !important;
+}
+
+
+body {
+    @if $is-dark-mode {
+        background-color: #1e1e1e;
+    }
+
+    @else {
+        background-color: #FFF;
+    }
+}
+
+
+.cv-container {
+
+
+
+    .bg-header-decorator {
+        top: 0;
+        width: 100%;
+        z-index: -2;
+        height: 30rem;
+        position: fixed;
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-image: url(../../assets/images/header-bg.jpg);
+
+
+    }
+
+
+
+    .page-container {
+
+        display: flex;
+
+        // Otra forma de centra horizontalmente un elemento
+        margin: 50px auto 50px auto;
+
+
+        @media (max-width: 899.98px) {
+            width: 100% !important;
+        }
+
+        @media (max-width: 900px) {
+            width: 90% !important;
+        }
+
+        @media (min-width: 900.98px) {
+            width: 70% !important;
+        }
+
+        @media (min-width: 1200px) {
+            width: 60% !important;
+        }
+
+        @media (min-width: 1200px) and (max-width: 1200.98px) {
+            width: 50% !important;
+        }
+
+
+        border-radius: 4px;
+        min-height: 100vh;
+
+        @if $is-dark-mode {
+            background-color: $background-dark;
+            box-shadow: 2px 3px 10px 2px rgb(0 0 0 / 26%);
+        }
+
+        @else {
+            background-color: $background;
+            box-shadow: 2px 3px 10px 2px #78787877;
+        }
+
+
+        .left-side {
+            width: 35%;
+            min-width: 35% !important;
+            min-height: 100vh;
+            border-top-left-radius: 4px;
+            border-bottom-left-radius: 4px;
+
+            @if $is-dark-mode {
+                background-color: $primary-dark;
+            }
+
+            @else {
+                background-color: $primary-light;
+            }
+
+            .aside-profile-img-wrapper {
+                width: 100%;
+                position: relative;
+                display: inline-block;
+
+
+                img {
+                    position: absolute;
+                    width: 65%;
+                    height: 65%;
+                    border-radius: 50%;
+                    // Otra forma para centrar un elemento
+                    // usando posicionamiento.
+                    // Importante: El padre de este elemento 
+                    // tiene que tener un position: relative;
+                    // sino pueda que funcione mal.
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                }
+
+                .profile-img-container {
+                    height: 100%;
+                    margin-top: 100%;
+                    position: relative;
+                    background-color: orange;
+
+                }
+            }
+
+            .contact-nav-section,
+            .skills-nav-section,
+            .awards-nav-section,
+            .social-media-nav-section,
+            .company-media-nav-section {
+                padding: 2.2rem;
+                padding-top: 0;
+                color: #FFF;
+
+                ul {
+                    padding: 0;
+
+                    li {
+                        display: flex;
+                        list-style: none;
+                        padding: 8px 0;
+                        text-decoration: none;
+                        align-items: center;
+                        color: #FFF;
+                        font-weight: 300;
+                        font-size: 14px;
+
+                        span {
+                            margin-right: 6px;
+                            font-size: 1rem;
+                        }
+                    }
+                }
+            }
+
+            .skills-nav-section {
+                .material-symbols-outlined {
+                    font-size: 1rem;
+                }
+            }
+
+            .social-media-nav-section {
+                ul {
+                    display: flex;
+                    justify-content: flex-start;
+
+                    li {
+                        img {
+                            height: 35px;
+                            width: 35px;
+                            filter: invert(100%);
+                            margin-right: 1rem;
+
+                        }
+                    }
+
+                }
+
+
+            }
+
+            .company-media-nav-section {
+                div {
+                    justify-content: center;
+                    display: flex;
+                    align-items: center;
+                    background-color: #0e172f;
+
+
+                    div {
+                        width: 150px;
+                        height: 150px;
+                        justify-content: center;
+                        display: flex;
+                        align-items: center;
+                    }
+                }
+            }
+
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+
+        }
+
+
+        main {
+            padding: 2rem;
+
+            .body-container {
+                nav {
+                    h1 {
+                        color: $primary-dark;
+                        font-size: 32px;
+                    }
+
+
+                    .hr {
+                        height: 4px;
+                        width: 50px;
+                        background-color: $primary-light;
+                    }
+
+
+                }
+
+                ul {
+                    margin-left: 1rem;
+                }
+            }
+
+        }
+    }
+}
+
+
+.text-color-primary {
+
+    color: $primary-light;
+
+
+}
+
+.subtitle {
+    color: #2e478a;
+    margin: 0.6rem 0;
+    font-size: 1rem;
 }
